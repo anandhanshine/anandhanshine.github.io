@@ -1,91 +1,246 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>portfolio</title>
-    <link rel="stylesheet" href="style.css">
-   
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <nav class="navbar">
-          <div class="brand">
-            <h2>A<span>S</span></h2>
-          </div>
-          <ul class="menu">
-            <li><a href="#info-content">Who I am</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#contact-heading">Contact</a></li>
-          </ul>
-        </nav>
-      </header>
-      <main class="main">
-        <div class="info-content" id="info-content">
-          <h1>I'm <span>Anandhan</span> Shine</h1>
-          <p>i am a web developer</p>
-        </div>
-       <a href="resume.pdf" download>
-  <button  class="rounded-button">Download CV</button>
-</a>
-      </main>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ANANDHAN SHINE — Gameplay Programmer &amp; Character Designer</title>
+<meta name="description" content="Portfolio of Anandhan Shine — gameplay programmer and character designer building games in Unity.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>
+  (function () {
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (location.hash && location.hash !== "#top") return;
+    document.documentElement.classList.add("intro");
+    window.setTimeout(function () {
+      document.documentElement.classList.remove("intro");
+      var copy = document.querySelector(".hero-copy");
+      if (copy) copy.classList.add("in");
+    }, 6000);
+  })();
+</script>
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="bg" aria-hidden="true">
+  <!-- Gravity stars: a plain-canvas port of the Animate UI background,
+       sitting behind every other layer. No libraries, no 3D landscape. -->
+  <canvas class="stars-bg" id="starsBg"></canvas>
+  <div class="scan"></div>
+</div>
+<div class="intro-flash" aria-hidden="true"></div>
+
+<!-- boot screen: shown only on a normal first load (html.intro), driven by app.js -->
+<div class="boot" id="boot" aria-hidden="true">
+  <div class="boot-inner">
+    <div class="boot-pad" id="bootPad"></div>
+    <p class="boot-label"><span id="bootLabel">LOADING</span><b id="bootPct">000%</b></p>
+    <div class="boot-bar"><i class="boot-fill" id="bootFill"></i></div>
+  </div>
+</div>
+
+<header class="nav" id="nav">
+  <a class="brand" href="#top"><span class="brand-mark">&#9670;</span><span class="brand-name">A</span></a>
+  <nav class="nav-links">
+    <a href="#work">Work</a>
+    <a href="#caps">Craft</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="nav-end">
+    <button class="icon-btn sfx-btn" id="sfxBtn" type="button" aria-pressed="true" aria-label="Sound effects on" title="Sound effects: on">
+      <svg class="ico-on" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M4 9.5v5h3.5L12 18V6L7.5 9.5H4z"/>
+        <path d="M15.5 9a4 4 0 0 1 0 6"/>
+        <path d="M18.2 6.6a7.6 7.6 0 0 1 0 10.8"/>
+      </svg>
+      <svg class="ico-off" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M4 9.5v5h3.5L12 18V6L7.5 9.5H4z"/>
+        <path d="M16 9.5l5 5"/>
+        <path d="M21 9.5l-5 5"/>
+      </svg>
+    </button>
+    <a class="btn btn-sm" href="#contact">Hire me</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="hero">
+    <div class="hero-copy reveal">
+      <p class="eyebrow"><span class="pulse"></span> Unity &nbsp;·&nbsp; C# &nbsp;·&nbsp; Game feel</p>
+      <h1>I build worlds<br>that <em>play</em> back.</h1>
+      <p class="lede">Gameplay programmer &amp; character designer. I build responsive movement, readable rules
+        and levels that teach themselves — from grey-box prototype to polished build.</p>
+      <div class="hero-cta">
+        <a class="btn btn-aqua" href="#work">Open the archive</a>
+        <a class="btn btn-ghost" href="#contact">Start a project</a>
+      </div>
+      <ul class="stats">
+        <li><b>02</b><span>years making games</span></li>
+        <li><b>01</b><span>playable project</span></li>
+        <li><b>00</b><span>jam wins — yet</span></li>
+      </ul>
     </div>
 
-    <div class="about">
-      <img src="protfolio.jpg" alt="">
-      <div class="about-info">
-        <h2>About me</h2>
-        <div class="divider"></div>
-        <p>Graphics designer</p>
-        <p>Frontend developer</p>
-        <button class="download-cv"><a href="readme.html">Read more</a></button>
+    <div class="hero-art">
+      <!-- Bencho's ASCII wake cube (MIT), parked where the target ring used to be -->
+      <div class="target-lock" id="targetLock">
+        <canvas class="ascii-canvas" id="asciiCube" width="360" height="240"
+                role="img" aria-label="A cube of dots that a pointer drags a wake through"></canvas>
       </div>
     </div>
 
-    <div class="1" id="portfolio">
-      <div class="portfolio-heading">
-        <h2>My Portfolio</h2>
+    <a class="scroll-cue" href="#work"><span>scroll to assemble</span><i></i></a>
+  </section>
 
- <div class="certificate" id="certificate1">
-   <img src="CERTIFICATES1.PNG" alt="">
-</div>
-
-<div class="certificate" id="certificate2">
-    <img src="CERTIFICATES2.PNG" alt="">
-</div>
-
-<div style="clear:both;"></div>
-</div>
-        
-<div class="contact-section">
-  <div class="contact-heading" id="contact-heading">
-    <h2>Keep in touch</h2>
-    <div class="divider"></div>
+  <!-- ================= MARQUEE ================= -->
+  <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+          <span>Unity</span><span class="sep">&#9670;</span>
+          <span>C#</span><span class="sep">&#9670;</span>
+          <span>Gameplay</span><span class="sep">&#9670;</span>
+          <span>Game feel</span><span class="sep">&#9670;</span>
+          <span>Character design</span><span class="sep">&#9670;</span>
+          <span>Level design</span><span class="sep">&#9670;</span>
+          <span>Unity</span><span class="sep">&#9670;</span>
+          <span>C#</span><span class="sep">&#9670;</span>
+          <span>Gameplay</span><span class="sep">&#9670;</span>
+          <span>Game feel</span><span class="sep">&#9670;</span>
+          <span>Character design</span><span class="sep">&#9670;</span>
+          <span>Level design</span><span class="sep">&#9670;</span>
+      </div>
   </div>
-  <div class="container-contact">
-   
-    <div class="contact-form" id="contact-form">
-      <h4>Send me a message...</h4>
-      <form class="form-group">
-        <input type="text" placeholder="Name" class="input">
-        <input type="email" placeholder="Email" class="input">
-        <textarea name="message" placeholder="Place your message here..."></textarea>
-        <button type="submit" class="btn-submit">Send message</button>
-      </form>
+
+  <!-- ================= WORK / DISC LOOP ================= -->
+  <section class="work" id="work">
+    <header class="sec-head reveal">
+      <div>
+        <p class="eyebrow">The archive</p>
+        <h2>Projects</h2>
+      </div>
+      <div class="sec-side work-side">
+        <div class="shape s-mini" aria-hidden="true">
+          <div class="tilt"><div class="spin" data-shape="ring" data-speed="16"></div></div>
+        </div>
+        <div class="side-copy">
+          <p>Hover a case to pull it off the shelf. Click it to open: the disc with its poster on one side, the project file — demo video, engine and project facts — on the other.</p>
+         
+        </div>
+      </div>
+    </header>
+
+    <div class="stack" id="stack" data-state="closed">
+      <div class="stage" id="stage"><!-- game cases injected --></div>
+      <div class="stack-ui">
+        <button class="arrow" id="prevBtn" aria-label="Previous project">&#9664;</button>
+        <div class="counter"><b id="counterNow">01</b><span>/</span><i id="counterAll">06</i></div>
+        <button class="arrow" id="nextBtn" aria-label="Next project">&#9654;</button>
+      </div>
+
+      <p class="hint" id="hint"><span class="hint-dot"></span> hover the shelf to pull out a case</p>
     </div>
-  </div>
-</div>
 
-<footer class="footer"> 
-  <div class="footer-content">
-    <h2>Anandhan shine</h2>
-    <h5>Frontend Developer</h5>
-  </div>
-  <div class="social-networks">
-    <i class="fab fa-instagram"></i>
-    <i class="fab fa-linkedin"></i>
-    <i class="fab fa-twitter-square"></i>
-  </div>
+    <ul class="legend reveal">
+      <li><b>HOVER</b> pull a case</li>
+      <li><b>CLICK</b> open the case</li>
+      <li><b>&#8592; &#8594;</b> move along the shelf</li>
+      <li><b>ESC</b> close the case</li>
+    </ul>
+  </section>
+
+  <!-- ================= CAPABILITIES ================= -->
+  <section class="caps" id="caps">
+    <header class="sec-head reveal">
+      <div>
+        <p class="eyebrow">What I actually do</p>
+        <h2>Craft <em>loadout</em></h2>
+      </div>
+      <div class="sec-side"><p>Four pillars, one loop: prototype, feel, polish, iterate.</p></div>
+    </header>
+
+    <div class="cap-grid">
+      <article class="cap reveal">
+        <h3>Gameplay Programming</h3>
+        <p>Movement, camera and interaction systems that feel right on the first input.
+           C# in Unity, state machines for abilities, and a lot of playtesting.</p>
+        <ul class="chips"><li>C#</li><li>Unity</li><li>State Machines</li><li>Input</li></ul>
+      </article>
+
+      <article class="cap reveal">
+        <h3>Character Design</h3>
+        <p>Silhouette first — a character has to read at thumbnail size before it gets a face.
+           I designed Squishy from blockout to final colour and expression.</p>
+        <ul class="chips"><li>Silhouette</li><li>Colour</li><li>Expression</li><li>2D Art</li></ul>
+      </article>
+
+      <article class="cap reveal">
+        <h3>Game Feel &amp; Juice</h3>
+        <p>Squash and stretch, hit-stop and camera shake — the layer that turns a working
+           mechanic into something you want to press again.</p>
+        <ul class="chips"><li>Squash &amp; Stretch</li><li>Hit-stop</li><li>Camera</li><li>Tuning</li></ul>
+      </article>
+
+      <article class="cap reveal">
+        <h3>Prototype &amp; Systems</h3>
+        <p>Small, playable, honest: block a mechanic out in a day, test whether it's fun,
+           then build the systems underneath — UI, scoring, progression.</p>
+        <ul class="chips"><li>Prototyping</li><li>UI</li><li>Scoring</li><li>Tuning</li></ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section class="about" id="about">
+    <div class="about-art" aria-hidden="true">
+      <div class="desk-stage">
+        <div class="desk-anchor">
+          <div class="desk-scale" id="deskScale">
+            <div class="desk-rig" id="deskRig"></div>
+          </div>
+          <div class="desk-shadow"></div>
+        </div>
+      </div>
+      <div class="shape s-dice"><div class="tilt"><div class="spin" data-shape="dice" data-speed="17"></div></div></div>
+    </div>
+    <div class="about-copy reveal">
+      <p class="eyebrow">Player one</p>
+      <h2>Gamer first,<br><em>builder</em> by choice.</h2>
+      <p>Started as a gamer who wanted to build the worlds I was exploring. I switched from a
+         computer-applications degree (BCA) into game development, and two years in I'm one real
+         project deep: Squishy, where I learned gameplay programming, game feel and character design
+         at the same time. Shaders and VFX are still early for me — I'm learning in public. No
+         published titles or jam wins yet; that's the next line on this page.</p>
+      <ul class="chips about-chips">
+        <li>Unity</li><li>C#</li><li>Character Design</li><li>Game Feel</li><li>Prototyping</li><li>Git</li>
+      </ul>
+      <p class="about-learning">Currently learning — shaders &amp; VFX</p>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section class="contact" id="contact">
+    <div class="contact-copy reveal">
+      <p class="eyebrow">Insert coin</p>
+      <h2>Let's make<br>something <em>fun</em>.</h2>
+      <p>Open to junior gameplay and design roles, internships, and small collaborations.</p>
+      <div class="hero-cta">
+        <a class="btn btn-aqua" href="mailto:anandhanshine8281@gmail.com">anandhanshine8281@gmail.com</a>
+        <a class="btn btn-ghost" href="#work">Replay the archive</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <span>&copy; 2026 Anandhan Shine — built with graphite, silver, aqua &amp; lime green.</span>
+  <span class="foot-links"><a href="#top">Top</a><a href="#work">Work</a><a href="#contact">Contact</a></span>
 </footer>
- </body>
+
+<script src="app.js"></script>
+</body>
 </html>

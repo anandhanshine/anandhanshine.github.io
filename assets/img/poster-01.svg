@@ -1,0 +1,101 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" width="900" height="900" role="img" aria-label="Squishy poster">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="42%" r="72%">
+      <stop offset="0%" stop-color="#131a2c"/>
+      <stop offset="55%" stop-color="#080a12"/>
+      <stop offset="100%" stop-color="#04050a"/>
+    </radialGradient>
+    <radialGradient id="core" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#2ef0d6" stop-opacity=".9"/>
+      <stop offset="100%" stop-color="#2ef0d6" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="typ" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="60%" stop-color="#2ef0d6"/>
+      <stop offset="100%" stop-color="#b79bff"/>
+    </linearGradient>
+    <linearGradient id="blob" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#5cf5e4"/>
+      <stop offset="52%" stop-color="#2ef0d6"/>
+      <stop offset="100%" stop-color="#8d76d8"/>
+    </linearGradient>
+    <linearGradient id="gloss" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity=".5"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <pattern id="scan" width="6" height="6" patternUnits="userSpaceOnUse">
+      <rect width="6" height="3" fill="#ffffff" opacity=".035"/>
+    </pattern>
+    <filter id="soft" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="22"/>
+    </filter>
+    <filter id="soft2" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="10"/>
+    </filter>
+  </defs>
+
+  <rect width="900" height="900" fill="url(#bg)"/>
+  <circle cx="450" cy="430" r="330" fill="#b79bff" opacity=".12" filter="url(#soft)"/>
+  <circle cx="450" cy="450" r="250" fill="#2ef0d6" opacity=".1" filter="url(#soft)"/>
+
+  <g opacity=".55">
+    <circle cx='450' cy='430' r='150' fill='none' stroke='#2ef0d6' stroke-width='8' opacity='0.35'/>
+    <circle cx='450' cy='430' r='196' fill='none' stroke='#b79bff' stroke-width='7' opacity='0.3'/>
+    <circle cx='450' cy='430' r='242' fill='none' stroke='#2ef0d6' stroke-width='6' opacity='0.25'/>
+    <circle cx='450' cy='430' r='288' fill='none' stroke='#b79bff' stroke-width='5' opacity='0.2'/>
+    <circle cx='450' cy='430' r='334' fill='none' stroke='#2ef0d6' stroke-width='4' opacity='0.15'/>
+  </g>
+
+  <!-- squish blob -->
+  <ellipse cx="450" cy="592" rx="182" ry="26" fill="#2ef0d6" opacity=".22" filter="url(#soft2)"/>
+  <path d="M 292 462
+           C 258 372, 330 292, 444 298
+           C 560 304, 636 354, 632 444
+           C 628 528, 554 574, 450 570
+           C 350 566, 308 534, 292 462 Z"
+        fill="url(#blob)"/>
+  <path d="M 292 462
+           C 258 372, 330 292, 444 298
+           C 560 304, 636 354, 632 444
+           C 628 528, 554 574, 450 570
+           C 350 566, 308 534, 292 462 Z"
+        fill="none" stroke="#b79bff" stroke-width="4" opacity=".65"/>
+  <ellipse cx="392" cy="366" rx="86" ry="46" fill="url(#gloss)" opacity=".7" transform="rotate(-18 392 366)"/>
+  <ellipse cx="404" cy="446" rx="17" ry="21" fill="#05060a"/>
+  <ellipse cx="500" cy="446" rx="17" ry="21" fill="#05060a"/>
+  <circle cx="410" cy="439" r="5" fill="#ffffff" opacity=".85"/>
+  <circle cx="506" cy="439" r="5" fill="#ffffff" opacity=".85"/>
+  <path d="M 424 498 Q 452 520 480 498" fill="none" stroke="#05060a" stroke-width="9" stroke-linecap="round"/>
+
+  <!-- squish motion ticks -->
+  <g stroke="#2ef0d6" stroke-width="4" stroke-linecap="round" opacity=".55">
+    <path d="M 196 392 L 236 392"/>
+    <path d="M 186 444 L 232 444"/>
+    <path d="M 700 392 L 662 392"/>
+    <path d="M 712 444 L 668 444"/>
+  </g>
+
+  <rect width="900" height="900" fill="url(#scan)"/>
+  <circle cx="450" cy="450" r="446" fill="none" stroke="#ffffff" stroke-opacity=".07" stroke-width="2"/>
+
+  <g font-family="'Arial Black','Segoe UI',Arial,sans-serif" font-weight="900" text-anchor="middle">
+    <text x="450" y="214" font-size="25" letter-spacing="9" fill="#2ef0d6" opacity=".95">UNITY &#183; HYPER-CASUAL</text>
+    <text x="450" y="708" font-size="116" letter-spacing="6" fill="url(#typ)">SQUISHY</text>
+  </g>
+  <g font-family="'Segoe UI',Arial,sans-serif" text-anchor="middle">
+    <text x="450" y="762" font-size="21" letter-spacing="5" fill="#c9d3e6" opacity=".8">ONE THUMB. SQUISH EVERYTHING.</text>
+  </g>
+
+  <g font-family="'Arial Black','Segoe UI',Arial,sans-serif" font-weight="900">
+    <text x="450" y="128" font-size="64" text-anchor="middle" fill="none" stroke="#2ef0d6" stroke-width="2" opacity=".85">01</text>
+  </g>
+  <g stroke="#b79bff" stroke-width="3" opacity=".7">
+    <line x1="250" y1="152" x2="380" y2="152"/>
+    <line x1="520" y1="152" x2="650" y2="152"/>
+    <line x1="250" y1="812" x2="650" y2="812" opacity=".5"/>
+  </g>
+  <g fill="#2ef0d6">
+    <rect x="238" y="144" width="8" height="8"/>
+    <rect x="654" y="144" width="8" height="8"/>
+  </g>
+</svg>
